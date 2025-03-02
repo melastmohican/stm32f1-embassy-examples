@@ -39,7 +39,6 @@ fn main() -> ! {
         Default::default(),
     );
 
-
     let mut delay = Delay;
     // The Adafruit boards have address 0x77 without closing the jumper on the back, the BME280 lib connects to 0x77 with `new_secondary`, use
     // `new_primary` for 0x76 if you close the jumper/solder bridge.
@@ -47,7 +46,10 @@ fn main() -> ! {
     bme280
         .init(&mut delay)
         .map_err(|error| {
-            error!("Could not initialize bme280, Error: {}", Debug2Format(&error));
+            error!(
+                "Could not initialize bme280, Error: {}",
+                Debug2Format(&error)
+            );
         })
         .unwrap();
     loop {
@@ -58,7 +60,10 @@ fn main() -> ! {
                 info!("Pressure = {} pascals", measurements.pressure)
             }
             Err(error) => {
-                error!("Could not read bme280 due to error: {}", Debug2Format(&error));
+                error!(
+                    "Could not read bme280 due to error: {}",
+                    Debug2Format(&error)
+                );
             }
         }
     }

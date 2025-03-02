@@ -10,9 +10,8 @@ use cortex_m::prelude::_embedded_hal_blocking_i2c_Write;
 use cortex_m_rt::entry;
 use defmt::*;
 use defmt_rtt as _;
-use panic_probe as _;
 use embassy_stm32::time::Hertz;
-
+use panic_probe as _;
 
 const VALID_ADDR_RANGE: Range<u8> = 0x08..0x7F;
 

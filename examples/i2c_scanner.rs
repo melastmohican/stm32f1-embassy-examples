@@ -13,8 +13,8 @@ use cortex_m::prelude::_embedded_hal_blocking_i2c_Write;
 use cortex_m_rt::entry;
 use defmt::*;
 use defmt_rtt as _;
-use panic_probe as _;
 use embassy_stm32::time::Hertz;
+use panic_probe as _;
 
 #[entry]
 fn main() -> ! {
@@ -30,7 +30,6 @@ fn main() -> ! {
 
     // STARTING!
     info!("I2C Scan");
-
 
     info!("Start i2c scanning...");
     // I2C addresses are typically 7 bits long, 0..127
